@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <http use-expressions="true">
+        <intercept-url pattern='/*' access='permitAll' />
+        <form-login login-page="/singers" authentication-failure-url="/security/loginfail"
+                    default-target-url="/singers" />
+        <csrf disabled="true"/>
+        <logout logout-success-url="/singers"/>
+    </http>
+
+    <authentication-manager>
+        <authentication-provider>
+            <password-encoder ref="encoder"/>
+            <user-service>
+                <!-- pass is still user -->
+                <user name="user" password="$2a$10$RmUal0VbYmacU1ISvPYbquhjnoPE/.BA0EVtb.Hc7wDwZv/h9jzIe" authorities="ROLE_USER" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean  id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+</beans:beans>

@@ -1,0 +1,176 @@
+rootProject.name = 'pro-spring-5'
+
+
+include 'chapter02:hello-world'
+
+include 'chapter03:bean-aliases'
+include 'chapter03:bean-autowiring'
+include 'chapter03:bean-inheritance'
+include 'chapter03:bean-instantiation-mode'
+include 'chapter03:cdl'
+include 'chapter03:collections'
+include 'chapter03:constructor-injection'
+include 'chapter03:dependency-pull'
+include 'chapter03:injection'
+include 'chapter03:method-injection'
+include 'chapter03:method-replacement'
+include 'chapter03:nesting'
+include 'chapter03:setter-injection'
+include 'chapter03:simple-types'
+include 'chapter03:field-injection'
+
+include 'chapter04:application-context-aware'
+include 'chapter04:bean-init-method'
+include 'chapter04:bean-name-aware'
+include 'chapter04:disposable-bean'
+include 'chapter04:environment'
+include 'chapter04:events'
+include 'chapter04:factory-bean'
+include 'chapter04:factory-bean-and-factory-method-attributes'
+include 'chapter04:groovy-config'
+include 'chapter04:groovy-config-java'
+include 'chapter04:initializing-bean'
+include 'chapter04:initializing-bean-destroy'
+include 'chapter04:java-config'
+include 'chapter04:java-config-message-provider'
+include 'chapter04:jsr330'
+include 'chapter04:message-source'
+include 'chapter04:post-construct'
+include 'chapter04:post-construct-pre-destroy'
+include 'chapter04:profiles'
+include 'chapter04:property-editors'
+include 'chapter04:property-placeholder'
+include 'chapter04:resource'
+include 'chapter04:shutdown-hook'
+include 'chapter04:boot-simple'
+include 'chapter04:boot-web'
+
+
+include 'chapter05:after-returning-advice-keygen'
+include 'chapter05:annotation-pointcut'
+include 'chapter05:aop-namespace'
+include 'chapter05:aspectj-annotations'
+include 'chapter05:aspectj-regex-pointcuts'
+include 'chapter05:cflow-pointcuts'
+include 'chapter05:cglib-performance'
+include 'chapter05:composable-pointcut'
+include 'chapter05:dynamic-pointcut'
+include 'chapter05:aop-hello-world'
+include 'chapter05:proxyfactorybean'
+include 'chapter05:proxyfactorybean-introduction'
+include 'chapter05:security'
+include 'chapter05:modification-introduction'
+include 'chapter05:simple-name-matching'
+include 'chapter05:simple-after-returning-advice'
+include 'chapter05:proxyfactorybean'
+include 'chapter05:simple-throws-advice'
+include 'chapter05:simple-around-advice'
+include 'chapter05:static-pointcut'
+include 'chapter05:regex-pointcuts'
+include 'chapter05:simple-before-advice'
+include 'chapter05:aspectj-boot'
+
+include 'chapter06:plain-jdbc'
+include 'chapter06:spring-jdbc-annotations'
+include 'chapter06:spring-jdbc-embedded'
+include 'chapter06:spring-jdbc-namedparam'
+include 'chapter06:spring-jdbc-resultsetextractor'
+include 'chapter06:spring-jdbc-rowmapper'
+include 'chapter06:spring-boot-jdbc'
+
+include 'chapter07:hibernate-crud'
+include 'chapter07:hibernate-base'
+
+include 'chapter08:jpa-crud'
+include 'chapter08:jpa-criteria'
+include 'chapter08:spring-data-jpa'
+include 'chapter08:spring-data-jpa-audit'
+include 'chapter08:hibernate-envers'
+include 'chapter08:spring-data-jpa-alt'
+include 'chapter08:boot-jpa'
+
+include 'chapter09:base-dao'
+include 'chapter09:transactions-xml'
+include 'chapter09:transactions-jta'
+include 'chapter09:transactions-programmatic'
+include 'chapter09:transactions-annotation'
+include 'chapter09:boot-jta'
+
+include 'chapter10:converter'
+include 'chapter10:converter-multiple-types'
+include 'chapter10:custom-formatter'
+include 'chapter10:jsr349'
+include 'chapter10:jsr349-assertTrue'
+include 'chapter10:jsr349-custom'
+include 'chapter10:property-editor'
+include 'chapter10:spring-validator'
+
+
+include 'chapter11:base-task'
+include 'chapter11:async-task'
+include 'chapter11:scheduled-task'
+include 'chapter11:scheduled-task-annotation'
+include 'chapter11:task-executor'
+
+include 'chapter12'
+include 'chapter12:base-remote'
+include 'chapter12:spring-invoker'
+include 'chapter12:rest'
+include 'chapter12:jms-artemis'
+include 'chapter12:jms-hornetq'
+include 'chapter12:boot-jms'
+include 'chapter12:boot-rest'
+include 'chapter12:secure-rest'
+include 'chapter12:amqp-rpc'
+include 'chapter12:boot-amqp'
+
+
+include 'chapter13:base-test'
+include 'chapter13:integration-test'
+include 'chapter13:mvc-unit-test'
+include 'chapter13:junit5-test'
+
+
+include 'chapter14:base-groovy'
+include 'chapter14:script-engines'
+include 'chapter14:groovy-spring'
+
+include 'chapter15:jmx'
+include 'chapter15:boot-jmx'
+
+
+include 'chapter16:singer-webapp-xml'
+include 'chapter16:singer-webapp-jcfg'
+include 'chapter16:singer-webapp-boot'
+
+include 'chapter17:sockjs'
+include 'chapter17:sockjs-cfg'
+include 'chapter17:stomp'
+include 'chapter17:stomp-cfg'
+include 'chapter17:websocket-api'
+include 'chapter17:websocket-api-cfg'
+
+include 'chapter18:batch'
+include 'chapter18:batch-cfg'
+include 'chapter18:batch-boot'
+include 'chapter18:batch-jsr352'
+include 'chapter18:integration'
+include 'chapter18:integration-cfg'
+include 'chapter18:xd'
+include 'chapter18:webflux-boot'
+include 'chapter18:webflux'
+
+include 'chapter18:boot-tests'
+
+println(' This project is a collection of simple code samples. It is meant to be used together with the ' +
+		'"Spring Pro, Fifth Edition" ' +
+		' published by Apress in order to learn and practice with all Spring Web libraries. ')
+
+// 모듈에 그레이들 구성 파일이 있는지 확인한다  
+rootProject.children.each { project ->
+	project.buildFileName = "${project.name}.gradle"
+	assert project.projectDir.isDirectory()
+	assert project.buildFile.exists()
+	assert project.buildFile.isFile()
+}
+

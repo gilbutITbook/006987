@@ -1,0 +1,13 @@
+dependencies {
+	compile project(':chapter03:constructor-injection')
+	testCompile testing.junit
+}
+
+jar {
+	manifest {
+		attributes("Created-By"      : "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Main-Class"         : "com.apress.prospring5.ch4.JavaConfigExampleOne",
+				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+	}
+}
