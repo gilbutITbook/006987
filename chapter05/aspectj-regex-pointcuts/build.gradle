@@ -1,0 +1,18 @@
+dependencies {
+	compile project(':chapter02:hello-world')
+	compile project(':chapter05:aop-hello-world')
+	compile project(':chapter05:regex-pointcuts')
+}
+
+jar {
+	manifest {
+		attributes(
+				"Created-By": "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Main-Class": "com.apress.prospring5.ch5.AspectjexpPointcutDemo",
+				"Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+		)
+	}
+}
+
+

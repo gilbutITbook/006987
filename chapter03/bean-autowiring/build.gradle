@@ -1,0 +1,10 @@
+jar {
+	manifest {
+		attributes(
+				"Created-By": "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Main-Class": "com.apress.prospring5.ch3.xml.Target",
+				"Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+		)
+	}
+}

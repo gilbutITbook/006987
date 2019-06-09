@@ -1,0 +1,16 @@
+dependencies {
+	compile project(':chapter02:hello-world')
+	compile project(':chapter05:proxyfactorybean')
+}
+
+jar {
+	manifest {
+		attributes(
+				"Created-By": "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Main-Class": "com.apress.prospring5.ch5.AopNamespaceDemo",
+				"Class-Path": configurations.compile.collect { it.getName() }.join(' ')
+		)
+	}
+}
+

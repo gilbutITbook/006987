@@ -1,0 +1,18 @@
+subprojects {
+	group 'com.apress.prospring5.ch07'
+	apply plugin: 'java'
+
+	/* build/libs 아래에 모든 의존성을 복사하는 작업 */
+	task copyDependencies(type: Copy) {
+		from configurations.compile
+		into 'build/libs'
+	}
+
+	dependencies {
+		// boot 모듈을 제외한 모든 서브 모듈에 다음과 같은 종속성을 지정함
+		if (!project.name.contains("boot")) {
+			compile spring.contextSupport, spring.orm, misc.slf4jJcl, misc.logback, db.h2, misc.lang3, hibernate.em
+		}
+		testCompile testing.junit
+	}
+}

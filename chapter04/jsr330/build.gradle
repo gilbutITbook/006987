@@ -1,0 +1,12 @@
+dependencies {
+	compile  misc.inject
+}
+
+jar {
+	manifest {
+		attributes("Created-By"      : "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Main-Class"         : "com.apress.prospring5.ch4.Jsr330Demo",
+				"Class-Path"         : configurations.compile.collect { it.getName() }.join(' '))
+	}
+}

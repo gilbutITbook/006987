@@ -1,0 +1,12 @@
+dependencies {
+	compile db.hsqldb,db.dbcp, db.dbcp2
+}
+
+jar {
+	manifest {
+		attributes("Created-By": "Iuliana Cosmina",
+				"Specification-Title": "Pro Spring 5",
+				"Main-Class": "com.apress.prospring5.ch18.SingerJobDemo",
+				"Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+	}
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean name="dataJpaConfig" class="com.apress.prospring5.ch9.config.DataJpaConfig" />
+
+    <aop:config>
+        <aop:pointcut id="serviceOperation" expression=
+                "execution(* com.apress.prospring5.ch9.*ServiceImpl.*(..))"/>
+        <aop:advisor pointcut-ref="serviceOperation" advice-ref="txAdvice"/>
+    </aop:config>
+
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="count*" propagation="NEVER"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <context:component-scan
+            base-package="com.apress.prospring5.ch9" />
+
+</beans>

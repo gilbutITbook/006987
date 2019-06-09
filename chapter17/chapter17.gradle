@@ -1,0 +1,24 @@
+subprojects {
+	group 'com.apress.prospring5.ch17'
+	apply plugin: 'java'
+
+	/*Task that copies all the dependencies under build/libs */
+	task copyDependencies(type: Copy) {
+		from configurations.compile
+		into 'build/libs'
+	}
+
+	dependencies {
+		if (!project.name.contains("boot")) {
+			compile (web.tomcatWsApi) {
+				exclude  module: 'tomcat-embed-core'
+			}
+			compile (web.tomcatWsEmbed) {
+				exclude  module: 'tomcat-embed-core'
+			}
+			compile spring.context, spring.webSocket, spring.messaging, spring.webmvc, web.websocket, misc.slf4jJcl,
+					misc.logback, misc.lang3, misc.jacksonDatabind, web.servlet, web.jstl, hibernate.validator
+		}
+		testCompile testing.junit
+	}
+}

@@ -1,0 +1,22 @@
+subprojects {
+	group 'com.apress.prospring5.ch18'
+	apply plugin: 'java'
+
+	/*Task that copies all the dependencies under build/libs */
+	task copyDependencies(type: Copy) {
+		from configurations.compile
+		into 'build/libs'
+	}
+
+	dependencies {
+		if (!project.name.contains("boot") && !project.name.contains("webflux")) {
+			compile(spring.batchCore) {
+				//exclude these as batchCore will bring them on as transitive dependencies
+				exclude module: 'spring-core'
+				exclude module: 'spring-beans'
+				exclude module: 'spring-tx'
+			}
+			compile spring.jdbc, misc.io, misc.slf4jJcl, misc.logback, misc.lang3
+		}
+	}
+}

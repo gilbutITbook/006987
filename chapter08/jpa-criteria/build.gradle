@@ -1,0 +1,58 @@
+apply plugin: 'idea'
+
+tasks.withType(JavaCompile) {
+  options.annotationProcessorGeneratedSourcesDirectory = file("src/main/generated")
+}
+
+
+sourceSets {
+    generated {
+        java {
+            srcDirs = [file("src/main/generated")]
+        }
+    }
+}
+
+configurations {
+    querydslapt
+}
+
+dependencies {
+    compile hibernate.querydslapt, hibernate.jpaModelGen
+    annotationProcessor(hibernate.jpaModelGen)
+}
+
+/*
+task generateQueryDSL(type: JavaCompile, group: 'build', description: 'QueryDSL 쿼리 타입을 생성한다.') {
+    source = sourceSets.main.java
+    classpath = configurations.compile + configurations.querydslapt
+    options.compilerArgs = [
+            "-proc:only",
+            "-processor", "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor"
+    ]
+    destinationDir = sourceSets.generated.java.srcDirs.iterator().next()
+}
+*/
+
+//compileJava.dependsOn generateQueryDSL
+compileJava {
+    options.compilerArgs += ['-AaddGenerationDate=true']
+    options.encoding = 'UTF-8'
+    options.annotationProcessorGeneratedSourcesDirectory = file("src/main/generated")
+}
+
+idea {
+    module {
+        sourceDirs += file('src/main/generated')
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                "Created-By"      : "Iuliana Cosmina",
+                "Specification-Title": "Pro Spring 5",
+                'Main-Class': 'com.apress.prospring5.ch8.SpringJPADemo',
+                "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+    }
+}
