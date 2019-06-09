@@ -30,7 +30,7 @@ import java.util.Locale;
 @ComponentScan(basePackages = {"com.apress.prospring5.ch16"})
 public class WebConfig implements WebMvcConfigurer {
 
-	// Á¤Àû ¸®¼Ò½º ¼±¾ğ. ÀÚ¹Ù ±¸¼º Á¤º¸¿¡ Ä³½Ã¸¦ Ãß°¡ÇßÁö¸¸ ÇÊ¼ö´Â ¾Æ´Ô
+	// ì •ì  ë¦¬ì†ŒìŠ¤ ì„ ì–¸. ìë°” êµ¬ì„± ì •ë³´ì— ìºì‹œë¥¼ ì¶”ê°€í–ˆì§€ë§Œ í•„ìˆ˜ëŠ” ì•„ë‹˜
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/")
