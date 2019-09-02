@@ -1,6 +1,6 @@
 # **전문가를 위한 스프링 5 (006987)** 
 
-![전문가를 위한 스프링 5 Cover](./document/images/cover_solid.png)
+![전문가를 위한 스프링 5 Cover](./document/images/cover_front.jpg)
 
 ## 전문가를 위한 스프링 5 :: 
 
