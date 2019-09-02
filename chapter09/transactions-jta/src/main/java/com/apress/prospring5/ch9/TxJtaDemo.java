@@ -32,7 +32,7 @@ public class TxJtaDemo {
 			logger.error("--> Singer가 저장되지 않았습니다. 구성을 확인하기 바랍니다!!");
 		}
 
-		// check saving in both databases
+		// 두 데이터베이스에서 저장 확인
 		List<Singer> singers = singerService.findAll();
 		if (singers.size()!= 2) {
 			logger.error("--> 뭔가가 잘못됐습니다");

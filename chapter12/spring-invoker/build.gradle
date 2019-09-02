@@ -2,7 +2,7 @@ apply plugin: 'war'
 
 dependencies {
 	compile project(':chapter12:base-remote')
-	compile spring.webmvc, web.servlet
+	compile spring.webmvc, web.servlet, misc.yasson
 	testCompile spring.test
 }
 

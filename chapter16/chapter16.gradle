@@ -2,14 +2,14 @@ subprojects {
 	group 'com.apress.prospring5.ch16'
 	apply plugin: 'java'
 
-	/* build/libs 아래의 모든 의존성 라이브러리를 복사하는 작업 */
+	/*Task that copies all the dependencies under build/libs */
 	task copyDependencies(type: Copy) {
 		from configurations.compile
 		into 'build/libs'
 	}
 
 	dependencies {
-		// 스프링 부르를 제외한 모든 서브 모듈의 라이브러리 의존성을 지정함
+		//we specify these dependencies for all submodules, except the boot module, that defines its own
 		compile misc.guava
 		if (!project.name.contains("boot")) {
 			compile (spring.contextSupport) {

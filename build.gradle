@@ -1,7 +1,7 @@
 ext {
 	// 스프링 라이브러리 
-	springVersion = '5.1.5.RELEASE'
-	bootVersion = '2.1.3.RELEASE'
+	springVersion = '5.1.8.RELEASE'
+	bootVersion = '2.1.6.RELEASE'
 	springDataVersion = '2.1.5.RELEASE'
 	springAmqpVersion = '2.1.0.RELEASE'
 	springSecurityVersion = '5.1.4.RELEASE'
@@ -49,7 +49,7 @@ ext {
 	junitVersion = '4.12'
 	hamcrestVersion = '1.3'
 	dbunitVersion = '2.5.3'
-	junit5Version = '5.3.1'
+	junit5Version = '5.4.0'
 
 	spring = [
 			context           : "org.springframework:spring-context:$springVersion",
@@ -112,7 +112,7 @@ ext {
 	testing = [
 			junit       : "junit:junit:$junitVersion",
 			junit5Engine: "org.junit.jupiter:junit-jupiter-engine:$junit5Version",
-			junit5Runner: "org.junit.platform:junit-platform-runner:1.0.0-M4",
+			junit5Runner: "org.junit.platform:junit-platform-runner:1.4.2",
 			mockito     : "org.mockito:mockito-all:$mockitoVersion",
 			easymock    : "org.easymock:easymock:3.4",
 			jmock       : "org.jmock:jmock:2.8.2",
@@ -145,6 +145,7 @@ ext {
 			jacksonDatabind: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
 			poi            : "org.apache.poi:poi:$poiVersion",
 			io             : "commons-io:commons-io:2.5",
+			yasson         : "org.eclipse:yasson:1.0.4"
 	]
 
 	web = [
@@ -157,7 +158,7 @@ ext {
 			tomcatWsEmbed: "org.apache.tomcat.embed:tomcat-embed-websocket:$twsVersion",
 			httpclient   : "org.apache.httpcomponents:httpclient:$httpclientVersion",
 			websocket    : "javax.websocket:javax.websocket-api:1.1",
-			servlet      : "javax:javaee-web-api:7.0",
+			servlet      : "javax:javaee-web-api:8.0",
 	]
 
 	react = [

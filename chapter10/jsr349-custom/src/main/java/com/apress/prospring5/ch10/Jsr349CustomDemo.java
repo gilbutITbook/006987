@@ -39,7 +39,7 @@ public class Jsr349CustomDemo {
     }
 
     private static void listViolations(Set<ConstraintViolation<Singer>> violations) {
-        logger.info("No. of violations: " + violations.size());
+        logger.info("위반 건수: " + violations.size());
         violations.forEach(v ->
             logger.info("유효성 검증 에러 발생. 프로퍼티: " +
                     v.getPropertyPath()

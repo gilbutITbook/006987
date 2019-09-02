@@ -17,7 +17,7 @@ buildscript {
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile boot.starterWeb
+    compile boot.starterWeb, boot.actuator
 }
 
 jar {

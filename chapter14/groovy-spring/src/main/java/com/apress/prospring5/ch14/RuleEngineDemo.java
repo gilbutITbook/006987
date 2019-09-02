@@ -11,8 +11,8 @@ public class RuleEngineDemo {
     public static void main(String... args) throws Exception {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
         ctx.load("classpath:spring/app-context.xml");
-        // remove "rules" from the line marked with (*) from build.gradle and decomment following line to use
-        // inline bean declaration
+        // build.gradle 파일의 (*) 로 마킹된 라인에서 "rules"를 삭제한 후
+        // 다음 라인의 주석을 풀면 인라인 빈 정의를 사용할 수 있습니다.
         //ctx.load("classpath:spring/app-context-inline.xml");
         ctx.refresh();
 

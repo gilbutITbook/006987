@@ -40,10 +40,10 @@ public class CTarget {
 
 	public static void main(String... args) {
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-		//using primary
+		//primary 사용
 		ctx.load("classpath:spring/app-context-04.xml");
 
-		//using qualifier
+		//qualifier 사용
 		//ctx.load("classpath:spring/app-context-05.xml");
 		ctx.refresh();
 		System.out.println("\nbyType을 사용:\n");

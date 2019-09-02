@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- remove attribute 'primary' to cause an UnsatisfiedDependencyException whe runnign the example -->
+    <!-- UnsatisfiedDependencyException을 발생시키려면 실행 시 primary 애트리뷰트를 제거하기 바랍니다. -->
     <bean id="fooOne" class="com.apress.prospring5.ch3.xml.complicated.FooImpl1" primary="true"/>
     <bean id="fooTwo" class="com.apress.prospring5.ch3.xml.complicated.FooImpl2"/>
 
